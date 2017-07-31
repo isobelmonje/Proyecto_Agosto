@@ -1,0 +1,40 @@
+Class documentation
+<---- javadoc command: ---->
+E:\Program Files (x86)\BlueJ\jdk\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-Xdoclint:none
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.8
+-classpath
+E:\Program Files (x86)\BlueJ\lib\bluejcore.jar;E:\Program Files (x86)\BlueJ\lib\junit-4.11.jar;E:\Program Files (x86)\BlueJ\lib\hamcrest-core-1.3.jar;E:\Program Files (x86)\BlueJ\lib\lang-stride.jar;E:\Program Files (x86)\BlueJ\lib\userlib\pi4j-core.jar;E:\Program Files (x86)\BlueJ\lib\userlib\pi4j-device.jar;E:\Program Files (x86)\BlueJ\lib\userlib\pi4j-gpio-extension.jar;E:\Program Files (x86)\BlueJ\lib\userlib\pi4j-service.jar;E:\DOCUMENTS\UNED\POO\Proyecto_taller
+-d
+E:\DOCUMENTS\UNED\POO\Proyecto_taller\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+E:\DOCUMENTS\UNED\POO\Proyecto_taller\Personas.java
+<---- end of javadoc command ---->
+Loading source file E:\DOCUMENTS\UNED\POO\Proyecto_taller\Personas.java...
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_131
+Building tree for all the packages and classes...
+Generating E:\DOCUMENTS\UNED\POO\Proyecto_taller\doc\Personas.html...
+E:\DOCUMENTS\UNED\POO\Proyecto_taller\Personas.java:41: warning - @param argument "y" is not a parameter name.
+E:\DOCUMENTS\UNED\POO\Proyecto_taller\Personas.java:41: warning - @return tag cannot be used in method with void return type.
+Generating E:\DOCUMENTS\UNED\POO\Proyecto_taller\doc\package-frame.html...
+Generating E:\DOCUMENTS\UNED\POO\Proyecto_taller\doc\package-summary.html...
+Generating E:\DOCUMENTS\UNED\POO\Proyecto_taller\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating E:\DOCUMENTS\UNED\POO\Proyecto_taller\doc\allclasses-frame.html...
+Generating E:\DOCUMENTS\UNED\POO\Proyecto_taller\doc\allclasses-noframe.html...
+Generating E:\DOCUMENTS\UNED\POO\Proyecto_taller\doc\index.html...
+2 warnings

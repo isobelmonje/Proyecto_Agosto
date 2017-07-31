@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Trabajador()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Trabajador\r\n
+comment1.params=Nuevo_dato
+comment1.target=void\ modificar_numero_de_trabajador(int)
+comment1.text=\r\n\ \r\n
+comment2.params=
+comment2.target=int\ numero_de_trabajador()
+numComments=3

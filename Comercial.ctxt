@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Comercial()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Trabajador\r\n
+comment1.params=Nuevo_dato
+comment1.target=void\ modificar_turno(java.lang.String)
+comment1.text=\r\n\ \r\n
+comment2.params=
+comment2.target=java.lang.String\ turno()
+numComments=3

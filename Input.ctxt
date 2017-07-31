@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Input()
+comment1.params=Frase
+comment1.target=void\ F_input(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ Input()
+numComments=3

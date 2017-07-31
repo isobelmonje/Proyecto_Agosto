@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Encargado()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Trabajador\r\n
+comment1.params=Nuevo_dato
+comment1.target=void\ modificar_turno(java.lang.String)
+comment1.text=\r\n\ Metodos\ de\ modificacion\ de\ datos\ de\ Encargado\r\n
+comment2.params=
+comment2.target=java.lang.String\ turno()
+comment2.text=\r\n\ Metodos\ para\ acceder\ a\ los\ datos\ de\ Encargado\r\n
+numComments=3
