@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Datos_BD
+comment1.params=
+comment1.target=Datos_BD()
+comment1.text=\r\n\ Constructor\ para\ todos\ los\ objetos\ en\ la\ clase\r\n
+comment2.params=encargado
+comment2.target=void\ nuevo_encargado(Encargado)
+comment2.text=\r\n\ GETTERS\ AND\ SETTERS\ de\ "lista_encargados"\r\n
+comment3.params=comercial
+comment3.target=void\ nuevo_comercial(Comercial)
+comment3.text=\r\n\ GETTERS\ AND\ SETTERS\ de\ "lista_comerciales"\r\n
+comment4.params=mecanico
+comment4.target=void\ nuevo_mecanico(Mecanico)
+comment4.text=\r\n\ GETTERS\ AND\ SETTERS\ de\ "lista_mecanicos"\r\n
+comment5.params=cliente
+comment5.target=void\ nuevo_cliente(Cliente)
+comment5.text=\r\n\ GETTERS\ AND\ SETTERS\ de\ "lista_clientes"\r\n
+comment6.params=vehiculo
+comment6.target=void\ nuevo_vehiculo(Vehiculo)
+comment6.text=\r\n\ GETTERS\ AND\ SETTERS\ de\ "lista_vehiculos"\r\n
+numComments=7
