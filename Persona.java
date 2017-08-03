@@ -7,13 +7,13 @@
 public class Persona
 {
     private String DNI;
-    private String telefono;
+    private String tlfn_per;
     private String direccion;
     private String nombre;
     private String primer_apellido;
     private String segundo_apellido;
     private String fecha_de_nacimiento;
-    private String fecha_alta_en_la_base;
+    private String fecha_alta;
     private boolean alta;
 
     /**
@@ -22,52 +22,52 @@ public class Persona
     public Persona()
     {
         DNI = "N/A";
-        telefono = "N/A";
+        tlfn_per = "N/A";
         direccion = "N/A";
         nombre = "N/A";
         primer_apellido = "N/A";
         segundo_apellido = "N/A";
         fecha_de_nacimiento = "N/A";
-        fecha_alta_en_la_base = "N/A";
+        fecha_alta = "N/A";
         alta = true;
     }
 
     /**
      * Metodos para modificar las variables
      */
-    public void Modificar_DNI(String dato_nuevo)
+    public void modificar_DNI(String dato_nuevo)
     {
         DNI= dato_nuevo;
     }
-    public void Modificar_telefono(String dato_nuevo)
+    public void modificar_tlfn_per(String dato_nuevo)
     {
-        telefono = dato_nuevo;
+        tlfn_per = dato_nuevo;
     }
-    public void Modificar_direccion(String dato_nuevo)
+    public void modificar_direccion(String dato_nuevo)
     {
         direccion = dato_nuevo;
     }
-    public void Modificar_nombre(String dato_nuevo)
+    public void modificar_nombre(String dato_nuevo)
     {
         nombre = dato_nuevo;
     }
-    public void Modificar_primer_apellido(String dato_nuevo)
+    public void modificar_primer_apellido(String dato_nuevo)
     {
         primer_apellido = dato_nuevo;
     }
-    public void Modificar_segundo_apellido(String dato_nuevo)
+    public void modificar_segundo_apellido(String dato_nuevo)
     {
         segundo_apellido = dato_nuevo;
     }
-    public void Modificar_fecha_de_nacimiento(String dato_nuevo)
+    public void modificar_fecha_de_nacimiento(String dato_nuevo)
     {
         fecha_de_nacimiento = dato_nuevo;
     }
-    public void Modificar_fecha_alta_en_la_base(String dato_nuevo)
+    public void modificar_fecha_alta(String dato_nuevo)
     {
-        fecha_alta_en_la_base = dato_nuevo;
+        fecha_alta = dato_nuevo;
     }
-    public void Modificar_alta()
+    public void modificar_alta()
     {
         if (alta == false){
             alta = true;
@@ -85,10 +85,10 @@ public class Persona
         // put your code here
         return DNI;
     }
-    public String telefono()
+    public String tlfn_per()
     {
         // put your code here
-        return telefono;
+        return tlfn_per;
     }
      public String direccion()
     {
@@ -117,10 +117,10 @@ public class Persona
         return fecha_de_nacimiento;
     } 
     
-     public String fecha_alta_en_la_base()
+     public String fecha_alta()
     {
         // put your code here
-        return fecha_alta_en_la_base;
+        return fecha_alta;
     }
      public boolean alta()
     {
@@ -128,5 +128,14 @@ public class Persona
         return alta;
     }
     
-
+    public void resumen_persona()
+    {
+        System.out.println("Nombre completo: " + nombre + " " + primer_apellido + " " + segundo_apellido);
+        System.out.println("DNI: " + DNI);
+        System.out.println("Telefono personal: " + tlfn_per);
+        System.out.println("Direccion: " + direccion);
+        System.out.println("Fecha de nacimiento: " + fecha_de_nacimiento);
+        System.out.println("Fecha de alta: " + fecha_alta);
+        System.out.println("Estado de alta: " + alta);
+    }
 }

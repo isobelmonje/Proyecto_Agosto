@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=Encargado
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Encargado\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Clase\ Encargado\:\ Extension\ de\ la\ clase\ "Trabajador\ y\ Persona"\ que\ almacenara\ el\ ID_encargado\n\ del\ Encargado.\ Sirve\ principalmente\ 3\ funciones\:\n\ \ -\ Almacenar\ datos\ especificos\ para\ Encargados.\n\ \ -\ Contiene\ metodos\ para\ modificar\ todas\ las\ Personas\ (Trabajador\ o\ Clientes).\n\ \ -\ Es\ el\ objeto\ con\ mayor\ jerarquia\ dentro\ de\ Trabajadores\ y\ Clientes\n\n\ @author\ Jose\ Froylan\ Malaga\ Cardoza\n\ @version\ V.0.00\n
 comment1.params=
 comment1.target=Encargado()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Trabajador\r\n
+comment1.text=\n\ CONSTRUCTOR_1\:\ Construye\ objetos\ de\ la\ clase\ encargado\ y\ pide\ al\ usuario\ los\ datos\ relevantes\n
 comment2.params=Nuevo_dato
-comment2.target=void\ modificar_turno(java.lang.String)
-comment2.text=\r\n\ Metodos\ de\ modificacion\ de\ datos\ de\ Encargado\r\n
+comment2.target=void\ modificar_ID_encargado(int)
+comment2.text=\n\ MODIFICADOR_1\:\ Metodos\ para\ modificar\ el\ ID\ del\ encargado\n
 comment3.params=
-comment3.target=java.lang.String\ turno()
-comment3.text=\r\n\ Metodos\ para\ acceder\ a\ los\ datos\ de\ Encargado\r\n
+comment3.target=int\ ID_encargado()
+comment3.text=\n\ ACCESOR_1\:\ Metodos\ para\ acceder\ al\ ID\ del\ encargado\n
 numComments=4

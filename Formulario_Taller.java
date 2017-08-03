@@ -50,7 +50,7 @@ public class Formulario_Taller
    
         
         
-        System.out.println("El encargado tiene turno de: " + Encargado1.turno());
+
         System.out.println("El encargado tiene DNI: " + Encargado1.DNI());
         System.out.println(Respuesta);
     

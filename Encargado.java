@@ -1,41 +1,39 @@
 
 /**
- * Write a description of class Encargado here.
+ * Clase Encargado: Extension de la clase "Trabajador y Persona" que almacenara el ID_encargado
+ * del Encargado. Sirve principalmente 3 funciones:
+ *  - Almacenar datos especificos para Encargados.
+ *  - Contiene metodos para modificar todas las Personas (Trabajador o Clientes).
+ *  - Es el objeto con mayor jerarquia dentro de Trabajadores y Clientes
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jose Froylan Malaga Cardoza
+ * @version V.0.00
  */
 public class Encargado extends Trabajador
 {
-    // instance variables - replace the example below with your own
-    private String turno;
+    private int ID_encargado;
 
     /**
-     * Constructor for objects of class Trabajador
+     * CONSTRUCTOR_1: Construye objetos de la clase encargado y pide al usuario los datos relevantes
      */
     public Encargado()
     {
-        // initialise instance variables
-        turno = "mañana";
+        ID_encargado = 0;
     }
-
+      
     /**
-     * Metodos de modificacion de datos de Encargado
+     * MODIFICADOR_1: Metodos para modificar el ID del encargado
      */
-    
-    public void modificar_turno(String Nuevo_dato)
+    public void modificar_ID_encargado(int Nuevo_dato)
     {
-        // put your code here
-        turno = Nuevo_dato;
+        ID_encargado = Nuevo_dato;
     }
     
     /**
-     * Metodos para acceder a los datos de Encargado
+     * ACCESOR_1: Metodos para acceder al ID del encargado
      */
-    
-    public String turno()
+    public int ID_encargado()
     {
-        // put your code here
-        return turno;
+        return ID_encargado;
     }
 }
