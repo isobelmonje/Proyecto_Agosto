@@ -11,7 +11,7 @@
 public class Persona
 {
     private String DNI;
-    private String tlfn_per;
+    private int tlfn_per;
     private String direccion;
     private String nombre;
     private String primer_apellido;
@@ -21,12 +21,12 @@ public class Persona
     private boolean alta;
     
     /**
-    * CONSTRUCTOR_1: Construye objetos de la clase persona e inicializa las variables
+    * CONSTRUCTOR_1: Construye objetos de la clase Persona e inicializa las variables
     */
     public Persona()
     {
         DNI = "N/A";
-        tlfn_per = "N/A";
+        tlfn_per = 0;
         direccion = "N/A";
         nombre = "N/A";
         primer_apellido = "N/A";
@@ -47,7 +47,7 @@ public class Persona
     /**
     * MODIFICADOR_2: Metodo para modificar el telefono personal de la Persona
     */
-    public void modificar_tlfn_per(String dato_nuevo)
+    public void modificar_tlfn_per(int dato_nuevo)
     {
         tlfn_per = dato_nuevo;
     }
@@ -124,7 +124,7 @@ public class Persona
     /**
     * ACCESOR_2: Metodo para acceder al telefono personal de la Persona
     */
-    public String tlfn_per()
+    public int tlfn_per()
     {
         return tlfn_per;
     }
