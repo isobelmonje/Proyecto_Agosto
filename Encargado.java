@@ -14,7 +14,7 @@ public class Encargado extends Trabajador
     private int ID_encargado;
 
     /**
-     * CONSTRUCTOR_1: Construye objetos de la clase encargado y pide al usuario los datos relevantes
+     * CONSTRUCTOR_1: Construye objetos de la clase encargado
      */
     public Encargado()
     {
