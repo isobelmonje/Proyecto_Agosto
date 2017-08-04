@@ -22,13 +22,36 @@ public class Encargado extends Trabajador
     }
       
     /**
-     * MODIFICADOR_1: Metodos para modificar el ID del Encargado
+     * MODIFICADOR_1.1: Metodos para modificar el ID del Encargado
      */
     public void modificar_ID_encargado(int Nuevo_dato)
     {
         ID_encargado = Nuevo_dato;
     }
     
+    /**
+     * MODIFICADOR_1.2: Metodos para modificar TODOS los datos de Encargado, incluyendo
+     * los de Personas y Trabajador
+     */
+    public void modificar_ID_encargado(String DNI_e, String direccion_e, String nombre_e, String primer_apellido_e, 
+                                String segundo_apellido_e, String fecha_nacimiento_e, String fecha_alta_e, 
+                                String turno_e, int tlfn_personal_e, int tlfn_empresa_e, int ID_trabajador_e, 
+                                int ID_encargado_e)
+    {
+        modificar_DNI(DNI_e);
+        modificar_direccion(direccion_e);
+        modificar_nombre(nombre_e);
+        modificar_primer_apellido(primer_apellido_e);
+        modificar_segundo_apellido(segundo_apellido_e);
+        modificar_fecha_de_nacimiento(fecha_nacimiento_e);
+        modificar_fecha_alta(fecha_alta_e);
+        modificar_turno(turno_e);
+        modificar_tlfn_per(tlfn_personal_e);
+        modificar_tlfn_empresa(tlfn_empresa_e);
+        modificar_ID_trabajador(ID_trabajador_e);
+        modificar_ID_encargado(ID_encargado_e);        
+    }
+        
     /**
      * ACCESOR_1: Metodos para acceder al ID del Encargado
      */
