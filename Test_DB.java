@@ -41,14 +41,7 @@ public class Test_DB
     }
 
     @Test
-    public void Test_1()
-    {
-        Datos_BD datos_BD1 = new Datos_BD();
-        datos_BD1.resumen_todos_encargados();
-    }
-
-    @Test
-    public void Test_2()
+    public void Test_BD()
     {
         Datos_BD datos_BD1 = new Datos_BD();
         
