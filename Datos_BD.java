@@ -32,12 +32,43 @@ public class Datos_BD
     }
     
     /**
-     * MODIFICADOR_1.1: Metodos para añadir nuevos Encargados a la Base de Datos
+     * MODIFICADOR_1.1.1: Metodos para añadir nuevos Encargados a la Base de Datos rellenando todos 
+     * los parametros
+     */
+    public void nuevo_encargado(String DNI, String direccion, String nombre, String primer_apellido, 
+                                String segundo_apellido, String fecha_nacimiento, String fecha_alta, 
+                                String turno, int tlfn_personal, int tlfn_empresa, int ID_trabajador, 
+                                int ID_encargado)
+    {
+        Encargado encargado = new Encargado();
+      
+        encargado.modificar_DNI(DNI);
+        encargado.modificar_direccion(direccion);
+        encargado.modificar_nombre(nombre);
+        encargado.modificar_primer_apellido(primer_apellido);
+        encargado.modificar_segundo_apellido(segundo_apellido);
+        encargado.modificar_fecha_de_nacimiento(fecha_nacimiento);
+        encargado.modificar_fecha_alta(fecha_alta);
+        encargado.modificar_turno(turno);
+           
+        encargado.modificar_tlfn_per(tlfn_personal);
+        encargado.modificar_ID_trabajador(ID_trabajador);
+        encargado.modificar_tlfn_empresa(tlfn_empresa);
+        encargado.modificar_ID_encargado(ID_encargado);
+
+        lista_encargados.add(encargado);
+    }
+    
+    /**
+     * MODIFICADOR_1.1.2: Metodos para añadir nuevos Encargados a la Base de Datos pasando un objeto
+     * Encargado() previamente creado
      */
     public void nuevo_encargado(Encargado encargado)
     {
         lista_encargados.add(encargado);
     }
+    
+    
     
     
     /**
@@ -160,23 +191,10 @@ public class Datos_BD
         
         
         for (int i = 0; i <num_enc; i++){
-            encargado = new Encargado();
-            
-            encargado.modificar_DNI(String_data_enc[0][i]);
-            encargado.modificar_direccion(String_data_enc[1][i]);
-            encargado.modificar_nombre(String_data_enc[2][i]);
-            encargado.modificar_primer_apellido(String_data_enc[3][i]);
-            encargado.modificar_segundo_apellido(String_data_enc[4][i]);
-            encargado.modificar_fecha_de_nacimiento(String_data_enc[5][i]);
-            encargado.modificar_fecha_alta(String_data_enc[6][i]);
-            encargado.modificar_turno(String_data_enc[7][i]);
-           
-            encargado.modificar_tlfn_per(int_data_enc[0][i]);
-            encargado.modificar_ID_trabajador(int_data_enc[1][i]);
-            encargado.modificar_tlfn_empresa(int_data_enc[2][i]);
-            encargado.modificar_ID_encargado(int_data_enc[3][i]);
-
-            lista_encargados.add(encargado);
+            nuevo_encargado(String_data_enc[0][i], String_data_enc[1][i], String_data_enc[2][i], 
+                                String_data_enc[3][i], String_data_enc[4][i], String_data_enc[5][i],
+                                String_data_enc[6][i], String_data_enc[7][i], int_data_enc[0][i], 
+                                int_data_enc[2][i], int_data_enc[1][i], int_data_enc[3][i]);
         }
     }
 }

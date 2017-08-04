@@ -46,7 +46,24 @@ public class Test_DB
         Datos_BD datos_BD1 = new Datos_BD();
         datos_BD1.resumen_todos_encargados();
     }
+
+    @Test
+    public void Test_2()
+    {
+        Datos_BD datos_BD1 = new Datos_BD();
+        
+        datos_BD1.nuevo_encargado("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
+                                "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
+                                    661862094, 662872195, 6, 606 );
+                                    
+        datos_BD1.nuevo_encargado("47879050X", "Navalcarnero", "Miriam", "Monje", 
+                                "Morales", "06/03/1989", "11/11/2011", "fin de semana", 
+                                    666361248, 667851681, 7, 707 );
+                                    
+        datos_BD1.resumen_todos_encargados();
+    }
 }
+
 
 
 
