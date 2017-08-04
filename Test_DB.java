@@ -62,7 +62,41 @@ public class Test_DB
                                     
         datos_BD1.resumen_todos_encargados();
     }
+
+    @Test
+    public void Test_Persona()
+    {
+        Persona persona1 = new Persona();
+        persona1.modificar_todo_persona("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
+                                        "Cardoza", "18/01/1987", "10/10/2010", 661862094);
+        persona1.resumen_persona();
+    }
+    
+    @Test
+    public void Test_Trabajador()
+    {
+        Trabajador trabajad1 = new Trabajador();
+        trabajad1.modificar_todo_trabajador("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
+                                            "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
+                                            661862094, 662872195, 6);
+        trabajad1.resumen_trabajador();
+        trabajad1.resumen_trabajador_completo();
+        
+    }
+    
+    @Test
+    public void Test_Encargado()
+    {
+        Encargado encargado1 = new Encargado();
+        encargado1.modificar_todo_encargado("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
+                                            "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
+                                            661862094, 662872195, 6, 606);
+        encargado1.resumen_encargado();
+        encargado1.resumen_encargado_completo();
+        
+    }
 }
+
 
 
 

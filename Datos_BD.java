@@ -41,8 +41,7 @@ public class Datos_BD
                                 int ID_encargado)
     {
         Encargado encargado = new Encargado();
-        
-        encargado.modificar_ID_encargado(DNI, direccion, nombre, primer_apellido, 
+        encargado.modificar_todo_encargado(DNI, direccion, nombre, primer_apellido, 
                                 segundo_apellido, fecha_nacimiento, fecha_alta, 
                                 turno, tlfn_personal, tlfn_empresa, ID_trabajador, 
                                 ID_encargado);

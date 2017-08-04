@@ -22,7 +22,7 @@ public class Encargado extends Trabajador
     }
       
     /**
-     * MODIFICADOR_1.1: Metodos para modificar el ID del Encargado
+     * MODIFICADOR_1: Metodos para modificar el ID del Encargado
      */
     public void modificar_ID_encargado(int Nuevo_dato)
     {
@@ -30,10 +30,10 @@ public class Encargado extends Trabajador
     }
     
     /**
-     * MODIFICADOR_1.2: Metodos para modificar TODOS los datos de Encargado, incluyendo
+     * MODIFICADOR_2: Metodo para modificar TODOS los datos de Encargado, incluyendo
      * los de Personas y Trabajador
      */
-    public void modificar_ID_encargado(String DNI_e, String direccion_e, String nombre_e, String primer_apellido_e, 
+    public void modificar_todo_encargado(String DNI_e, String direccion_e, String nombre_e, String primer_apellido_e, 
                                 String segundo_apellido_e, String fecha_nacimiento_e, String fecha_alta_e, 
                                 String turno_e, int tlfn_personal_e, int tlfn_empresa_e, int ID_trabajador_e, 
                                 int ID_encargado_e)
@@ -49,7 +49,7 @@ public class Encargado extends Trabajador
         modificar_tlfn_per(tlfn_personal_e);
         modificar_tlfn_empresa(tlfn_empresa_e);
         modificar_ID_trabajador(ID_trabajador_e);
-        modificar_ID_encargado(ID_encargado_e);        
+        modificar_ID_encargado(ID_encargado_e);
     }
         
     /**
@@ -65,7 +65,9 @@ public class Encargado extends Trabajador
     */
     public void resumen_encargado()
     {
+        System.out.println("RESUMEN ESPECIFICO A ENCARGADO");
         System.out.println("ID del encargado: " + ID_encargado);
+        System.out.println("");
     }
         
     /**
@@ -73,6 +75,8 @@ public class Encargado extends Trabajador
     */
     public void resumen_encargado_completo()
     {
+        System.out.println("*****************************************************");
+        System.out.println("RESUMEN DEL ENCARGADO: " + nombre() + " " + primer_apellido());
         System.out.println("Nombre completo: " + nombre() + " " + primer_apellido() + " " + segundo_apellido());
         System.out.println("DNI: " + DNI());
         System.out.println("Telefono personal: " + tlfn_per());
@@ -84,6 +88,7 @@ public class Encargado extends Trabajador
         System.out.println("Turno: " + turno());
         System.out.println("Telefono de Empresa: " + tlfn_empresa());
         System.out.println("ID del encargado: " + ID_encargado);
+        System.out.println("*****************************************************");
         System.out.println("");
     }
 }

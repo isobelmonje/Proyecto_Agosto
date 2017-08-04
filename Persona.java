@@ -114,6 +114,22 @@ public class Persona
     }
     
     /**
+    * MODIFICADOR_10: Metodo para modificar TODOS los datos de Persona
+    */
+    public void modificar_todo_persona(String DNI_p, String direccion_p, String nombre_p, String primer_apellido_p, 
+                                String segundo_apellido_p, String fecha_nacimiento_p, String fecha_alta_p, int tlfn_personal_p)
+    {
+        modificar_DNI(DNI_p);
+        modificar_direccion(direccion_p);
+        modificar_nombre(nombre_p);
+        modificar_primer_apellido(primer_apellido_p);
+        modificar_segundo_apellido(segundo_apellido_p);
+        modificar_fecha_de_nacimiento(fecha_nacimiento_p);
+        modificar_fecha_alta(fecha_alta_p);
+        modificar_tlfn_per(tlfn_personal_p);
+    }
+   
+    /**
     * ACCESOR_1: Metodo para acceder al DNI de la Persona
     */
     public String DNI()
@@ -190,6 +206,8 @@ public class Persona
     */
     public void resumen_persona()
     {
+        System.out.println("*****************************************************");
+        System.out.println("RESUMEN DE LA PERSONA: " + nombre() + " " + primer_apellido());
         System.out.println("Nombre completo: " + nombre + " " + primer_apellido + " " + segundo_apellido);
         System.out.println("DNI: " + DNI);
         System.out.println("Telefono personal: " + tlfn_per);
@@ -197,5 +215,7 @@ public class Persona
         System.out.println("Fecha de nacimiento: " + fecha_de_nacimiento);
         System.out.println("Fecha de alta: " + fecha_alta);
         System.out.println("Estado de alta: " + alta);
+        System.out.println("*****************************************************");
+        System.out.println("");
     }
 }

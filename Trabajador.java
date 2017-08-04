@@ -48,6 +48,27 @@ public class Trabajador extends Persona
     }
     
     /**
+    * MODIFICADOR_4: Metodo para modificar TODOS los datos de Trabajador, incluyendo
+    * los de Personas
+    */
+    public void modificar_todo_trabajador(String DNI_t, String direccion_t, String nombre_t, String primer_apellido_t, 
+                                String segundo_apellido_t, String fecha_nacimiento_t, String fecha_alta_t, 
+                                String turno_t, int tlfn_personal_t, int tlfn_empresa_t, int ID_trabajador_t)
+    {
+        modificar_DNI(DNI_t);
+        modificar_direccion(direccion_t);
+        modificar_nombre(nombre_t);
+        modificar_primer_apellido(primer_apellido_t);
+        modificar_segundo_apellido(segundo_apellido_t);
+        modificar_fecha_de_nacimiento(fecha_nacimiento_t);
+        modificar_fecha_alta(fecha_alta_t);
+        modificar_turno(turno_t);
+        modificar_tlfn_per(tlfn_personal_t);
+        modificar_tlfn_empresa(tlfn_empresa_t);
+        modificar_ID_trabajador(ID_trabajador_t);
+    }
+    
+    /**
     * ACCESOR_1: Metodo para acceder al ID_trabajador del trabajador
     */
     public int ID_trabajador()
@@ -76,16 +97,20 @@ public class Trabajador extends Persona
     */
     public void resumen_trabajador()
     {
+        System.out.println("RESUMEN ESPECIFICO A TRABAJADOR");
         System.out.println("ID del trabajador: " + ID_trabajador);
         System.out.println("Turno: " + turno);
         System.out.println("Telefono de Empresa: " + tlfn_empresa);
+        System.out.println("");
     }
         
     /**
-    * RESUMEN_2: Resumen de todas las variables dentro de Persona()
+    * RESUMEN_2: Resumen de todas las variables dentro de Trabajador()
     */
     public void resumen_trabajador_completo()
     {
+        System.out.println("*****************************************************");
+        System.out.println("RESUMEN DEL TRABAJADOR: " + nombre() + " " + primer_apellido());
         System.out.println("Nombre completo: " + nombre() + " " + primer_apellido() + " " + segundo_apellido());
         System.out.println("DNI: " + DNI());
         System.out.println("Telefono personal: " + tlfn_per());
@@ -96,5 +121,7 @@ public class Trabajador extends Persona
         System.out.println("ID del trabajador: " + ID_trabajador);
         System.out.println("Turno: " + turno);
         System.out.println("Telefono de Empresa: " + tlfn_empresa);
+        System.out.println("*****************************************************");
+        System.out.println("");
     }
 }
