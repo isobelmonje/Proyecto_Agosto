@@ -74,7 +74,6 @@ public class Test_DB
                                             661862094, 662872195, 6);
         trabajad1.resumen_trabajador();
         trabajad1.resumen_trabajador_completo();
-        
     }
     
     @Test
@@ -86,7 +85,17 @@ public class Test_DB
                                             661862094, 662872195, 6, 606);
         encargado1.resumen_encargado();
         encargado1.resumen_encargado_completo();
-        
+    }
+    
+    @Test
+    public void Test_Comercial()
+    {
+        Comercial comercial1 = new Comercial();
+        comercial1.modificar_todo_comercial("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
+                                            "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
+                                            661862094, 662872195, 6, 101);
+        comercial1.resumen_comercial();
+        comercial1.resumen_comercial_completo();
     }
 }
 

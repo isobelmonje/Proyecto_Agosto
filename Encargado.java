@@ -3,7 +3,7 @@
  * Clase Encargado: Extension de la clase "Trabajador y Persona" que almacenara el ID_encargado
  * del Encargado. Sirve principalmente 3 funciones:
  *  - Almacenar datos especificos para Encargados.
- *  - Contiene metodos para modificar todas las Personas (Trabajador o Clientes).
+ *  - Contiene metodos para modificar todas los parametros de su estructura Trabajador y Persona.
  *  - Es el objeto con mayor jerarquia dentro de Trabajadores y Clientes
  *
  * @author Jose Froylan Malaga Cardoza
