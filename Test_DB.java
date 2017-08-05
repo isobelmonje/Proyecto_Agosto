@@ -45,15 +45,15 @@ public class Test_DB
     {
         Datos_BD datos_BD1 = new Datos_BD();
         
-        datos_BD1.nuevo_encargado("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
-                                "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
-                                    661862094, 662872195, 6, 606 );
+        // datos_BD1.nuevo_encargado("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
+                                // "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
+                                    // 661862094, 662872195, 6, 606 );
                                     
-        datos_BD1.nuevo_encargado("47879050X", "Navalcarnero", "Miriam", "Monje", 
-                                "Morales", "06/03/1989", "11/11/2011", "fin de semana", 
-                                    666361248, 667851681, 7, 707 );
+        // datos_BD1.nuevo_encargado("47879050X", "Navalcarnero", "Miriam", "Monje", 
+                                // "Morales", "06/03/1989", "11/11/2011", "fin de semana", 
+                                    // 666361248, 667851681, 7, 707 );
                                     
-        datos_BD1.resumen_todos_encargados();
+        datos_BD1.resumen_todos_trabajadores();
     }
 
     @Test
@@ -68,34 +68,21 @@ public class Test_DB
     @Test
     public void Test_Trabajador()
     {
-        Trabajador trabajad1 = new Trabajador();
-        trabajad1.modificar_todo_trabajador("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
-                                            "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
-                                            661862094, 662872195, 6);
-        trabajad1.resumen_trabajador();
-        trabajad1.resumen_trabajador_completo();
-    }
-    
-    @Test
-    public void Test_Encargado()
-    {
-        Encargado encargado1 = new Encargado();
-        encargado1.modificar_todo_encargado("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
-                                            "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
-                                            661862094, 662872195, 6, 606);
-        encargado1.resumen_encargado();
-        encargado1.resumen_encargado_completo();
-    }
-    
-    @Test
-    public void Test_Comercial()
-    {
-        Comercial comercial1 = new Comercial();
-        comercial1.modificar_todo_comercial("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
-                                            "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
-                                            661862094, 662872195, 6, 101);
-        comercial1.resumen_comercial();
-        comercial1.resumen_comercial_completo();
+        
+        System.out.println("Creacion de Objeto:");
+        Trabajador trabaj1 = new Trabajador("50548860N", 661862094, "Calypo Fado", "Jose Froylan",
+                                            "Malaga", "Cardoza", "18/01/1987", "10/10/2010", 6,
+                                            662872195, "mecanico", "tarde");
+        trabaj1.resumen_trabajador();
+        trabaj1.resumen_trabajador_completo();
+        
+        System.out.println("Modificacion de Objeto:");
+                                            
+        trabaj1.modificar_todo_trabajador("50548860N", 661862094, "Calypo Fado", "Jose Fernando",
+                                            "Malaga", "Cardoza", "18/01/1987", "10/10/2010", 6,
+                                            662872195, "mecanico", "tarde");
+        trabaj1.resumen_trabajador();
+        trabaj1.resumen_trabajador_completo();
     }
 }
 
