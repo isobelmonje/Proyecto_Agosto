@@ -14,11 +14,13 @@ public class Prueba
     { 
         // Bienvenida al Taller
         System.out.println("Bienvenido al taller Javeano");
+        System.out.println("Si usted no es un trabajador activo no podrá acceder al sistema...");
         System.out.println("");
     
         // Creamos objeto Input para usarlo cada vez que haya que introducir datos
         Input input = new Input();
+        // Creamos la base de datos del programa
         Datos_BD bd = new Datos_BD();
-        bd.resumen_todos_encargados();
+
     }
 }

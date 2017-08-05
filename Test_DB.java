@@ -44,14 +44,12 @@ public class Test_DB
     public void Test_BD()
     {
         Datos_BD datos_BD1 = new Datos_BD();
-        
-        // datos_BD1.nuevo_encargado("50548860N", "Calypo Fado", "Jose Froylan", "Malaga", 
-                                // "Cardoza", "18/01/1987", "10/10/2010", "tarde", 
-                                    // 661862094, 662872195, 6, 606 );
-                                    
-        // datos_BD1.nuevo_encargado("47879050X", "Navalcarnero", "Miriam", "Monje", 
-                                // "Morales", "06/03/1989", "11/11/2011", "fin de semana", 
-                                    // 666361248, 667851681, 7, 707 );
+        datos_BD1.nuevo_trabajador("50548860N", 661862094, "Calypo Fado", "Jose Froylan", "Malaga", 
+                                    "Cardoza", "18/01/1987", "10/10/2010", 6, 662872195, "mecanico",
+                                    "tarde", "6666");
+        datos_BD1.nuevo_trabajador("47879050X", 666361248, "Navalcarnero", "Miriam", "Monje", 
+                                    "Morales", "06/03/1989", "11/11/2011", 7, 667851681, "mecanico",
+                                    "fin de semana", "7777" );
                                     
         datos_BD1.resumen_todos_trabajadores();
     }
@@ -68,25 +66,20 @@ public class Test_DB
     @Test
     public void Test_Trabajador()
     {
-        
-        System.out.println("Creacion de Objeto:");
+        System.out.println("CREACIÓN DE OBJETO:");
+        System.out.println("");
         Trabajador trabaj1 = new Trabajador("50548860N", 661862094, "Calypo Fado", "Jose Froylan",
                                             "Malaga", "Cardoza", "18/01/1987", "10/10/2010", 6,
-                                            662872195, "mecanico", "tarde");
+                                            662872195, "mecanico", "tarde", "6666");
         trabaj1.resumen_trabajador();
-        trabaj1.resumen_trabajador_completo();
+        trabaj1.resumen_trabajador_completo_s_passwd();
         
-        System.out.println("Modificacion de Objeto:");
-                                            
+        System.out.println("MODIFICACIÓN DE OBJETO:");
+        System.out.println("");                                    
         trabaj1.modificar_todo_trabajador("50548860N", 661862094, "Calypo Fado", "Jose Fernando",
                                             "Malaga", "Cardoza", "18/01/1987", "10/10/2010", 6,
                                             662872195, "mecanico", "tarde");
         trabaj1.resumen_trabajador();
-        trabaj1.resumen_trabajador_completo();
+        trabaj1.resumen_trabajador_completo_c_passwd();
     }
 }
-
-
-
-
-

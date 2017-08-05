@@ -35,7 +35,26 @@ public class Persona
         fecha_alta = "N/A";
         alta = true;
     }
-
+    
+    /**
+    * CONSTRUCTOR_2: Construye objetos de la clase Persona e inicializa las variables con parametros
+    *                   que le pasará el usuario.
+    */
+    public Persona(String DNI_p, int tlfn_personal_p, String direccion_p, String nombre_p,
+                        String primer_apellido_p, String segundo_apellido_p, String fecha_nacimiento_p,
+                        String fecha_alta_p)
+    {
+        DNI = DNI_p;
+        tlfn_per = tlfn_personal_p;
+        direccion = direccion_p;
+        nombre = nombre_p;
+        primer_apellido = primer_apellido_p;
+        segundo_apellido = segundo_apellido_p;
+        fecha_de_nacimiento = fecha_nacimiento_p;
+        fecha_alta = fecha_alta_p;
+        alta = true;
+    }
+    
     /**
     * MODIFICADOR_1: Metodo para modificar el DNI de la Persona
     */
@@ -114,7 +133,8 @@ public class Persona
     }
     
     /**
-    * MODIFICADOR_10: Metodo para modificar TODOS los datos de Persona
+    * MODIFICADOR_10: Metodo para modificar TODOS los datos de Persona, excepto el alta que deberá modificarse 
+    * mediante MODIFICADOR_9: modificar_alta()
     */
     public void modificar_todo_persona(String DNI_p, String direccion_p, String nombre_p, String primer_apellido_p, 
                                 String segundo_apellido_p, String fecha_nacimiento_p, String fecha_alta_p, int tlfn_personal_p)
@@ -206,8 +226,9 @@ public class Persona
     */
     public void resumen_persona()
     {
-        System.out.println("*****************************************************");
-        System.out.println("RESUMEN DE LA PERSONA: " + nombre() + " " + primer_apellido());
+        System.out.println("# # # # # # # # # # # # # # # # # # # # # # # # # # #");
+        System.out.println("***** " + nombre.toUpperCase() + " " + primer_apellido.toUpperCase() + " *****");
+        // System.out.println("RESUMEN DE LA PERSONA: " + nombre() + " " + primer_apellido());
         System.out.println("Nombre completo: " + nombre + " " + primer_apellido + " " + segundo_apellido);
         System.out.println("DNI: " + DNI);
         System.out.println("Telefono personal: " + tlfn_per);
@@ -215,7 +236,7 @@ public class Persona
         System.out.println("Fecha de nacimiento: " + fecha_de_nacimiento);
         System.out.println("Fecha de alta: " + fecha_alta);
         System.out.println("Estado de alta: " + alta);
-        System.out.println("*****************************************************");
+        System.out.println("# # # # # # # # # # # # # # # # # # # # # # # # # # #");
         System.out.println("");
     }
 }

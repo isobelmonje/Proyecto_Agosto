@@ -34,17 +34,18 @@ public class Datos_BD
     public void nuevo_trabajador(String DNI, int tlfn_personal, String direccion, String nombre, 
                                 String primer_apellido, String segundo_apellido, String fecha_nacimiento, 
                                 String fecha_alta, int ID_trabajador, int tlfn_empresa, 
-                                String tipo_trabajador, String turno)
+                                String tipo_trabajador, String turno, String password)
     {
         Trabajador trabajador = new Trabajador(DNI, tlfn_personal, direccion, nombre, primer_apellido,
                                                 segundo_apellido, fecha_nacimiento, fecha_alta,
-                                                ID_trabajador, tlfn_empresa, tipo_trabajador, turno);
+                                                ID_trabajador, tlfn_empresa, tipo_trabajador, turno,
+                                                password);
         lista_trabajadores.add(trabajador);
     }
     
     /**
      * MODIFICADOR_1.1.2: Metodos para añadir nuevos Encargados a la Base de Datos pasando un objeto
-     * Encargado() previamente creado
+     * Trabajador() previamente creado
      */
     public void nuevo_trabajador(Trabajador trabajador)
     {
@@ -55,11 +56,19 @@ public class Datos_BD
     
     
     /**
-     * RESUMEN_1.1: Metodos para sacar un resumen de un Encargado particular
+     * RESUMEN_1.1: Metodos para sacar un resumen de un Encargado particular, excepto password
      */
-    public void resumen_trabajador_especifico(int ID_enc)
+    public void resumen_trabajador_especifico_s_passwd(int ID_enc)
     {
-        lista_trabajadores.get(ID_enc).resumen_trabajador_completo();
+        lista_trabajadores.get(ID_enc).resumen_trabajador_completo_s_passwd();
+    }
+    
+    /**
+     * RESUMEN_1.1: Metodos para sacar un resumen de un Encargado particular completo
+     */
+    public void resumen_trabajador_especifico_c_passwd(int ID_enc)
+    {
+        lista_trabajadores.get(ID_enc).resumen_trabajador_completo_c_passwd();
     }
     
     /**
@@ -68,7 +77,7 @@ public class Datos_BD
     public void resumen_todos_trabajadores()
     {
         for(Trabajador trabajador : lista_trabajadores){
-            trabajador.resumen_trabajador_completo();
+            trabajador.resumen_trabajador_completo_s_passwd();
         }
     }
               
@@ -76,22 +85,22 @@ public class Datos_BD
     {      
         nuevo_trabajador("11111111A", 662872195, "Madrid", "Pablo", "Iglesias", 
                         "Turrion", "01/01/1981", "01/01/2001", 1, 121232343, 
-                        "encargado", "mañana");
+                        "encargado", "mañana", "1111");
 
         nuevo_trabajador("22222222B", 662872195, "Madrid", "Pedro", "Sanchez", 
                         "Castejón", "02/02/1982", "02/02/2002", 2, 232343454, 
-                        "comercial", "tarde");
+                        "comercial", "tarde", "2222");
         
         nuevo_trabajador("33333333C", 662872195, "Galicia", "Mariano", "Rajoy", 
                         "Brey", "03/03/1983", "03/03/2003", 3, 343454565, 
-                        "mecanico", "mañana");
+                        "mecanico", "mañana", "3333");
                         
         nuevo_trabajador("44444444D", 662872195, "Andalucia", "Alberto", "Garzón", 
                         "Espinosa", "04/04/1984", "04/04/2004", 4, 454565676, 
-                        "comercial", "tarde");
+                        "comercial", "tarde", "4444");
         
         nuevo_trabajador("55555555E", 662872195, "Cataluña", "Albert", "Rivera", 
                         "Diaz", "05/05/1985", "05/05/2005", 5, 565676787,
-                        "mecanico", "fin de semana");
+                        "mecanico", "fin de semana", "5555");
     }
 }
