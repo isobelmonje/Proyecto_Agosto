@@ -138,7 +138,23 @@ public class Trabajador extends Persona
     }
     
     /**
-    * ACCESOR_2: Metodo para acceder al turno del trabajador
+    * ACCESOR_2: Metodo para acceder al telefono de empresa del trabajador
+    */
+    public int tlfn_empresa()
+    {
+        return tlfn_empresa;
+    }
+    
+    /**
+    * ACCESOR_3: Metodo para acceder al tipo de trabajador
+    */
+    public String tipo_trabajador()
+    {
+        return tipo_trabajador;
+    }
+    
+    /**
+    * ACCESOR_4: Metodo para acceder al turno del trabajador
     */
     public String turno()
     {
@@ -146,11 +162,19 @@ public class Trabajador extends Persona
     }
     
     /**
-    * ACCESOR_3: Metodo para acceder al telefono de empresa del trabajador
+    * ACCESOR_5: Metodo para acceder al email del trabajador
     */
-    public int tlfn_empresa()
+    public String email()
     {
-        return tlfn_empresa;
+        return email;
+    }
+    
+    /**
+    * ACCESOR_6: Metodo para acceder al password del trabajador
+    */
+    public String password()
+    {
+        return password;
     }
     
     /**

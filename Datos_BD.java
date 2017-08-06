@@ -52,11 +52,26 @@ public class Datos_BD
         lista_trabajadores.add(trabajador);
     }
     
+    /**
+    * ACCESOR_2: Metodo para verificar si existe un trabajador especifico en la BD por DNI y devolverlo
+    */
+    public Trabajador comprobar_trabajador(String DNI)
+    {
+        Trabajador trabajador = new Trabajador();
+        
+        for(Trabajador trabajador_loop : lista_trabajadores){
+           if (trabajador_loop.DNI().toLowerCase().equals(DNI.toLowerCase())){
+               trabajador = trabajador_loop;
+               break;
+           }
+        }
+        return trabajador;
+    }
     
     
     
     /**
-     * RESUMEN_1.1: Metodos para sacar un resumen de un Encargado particular, excepto password
+     * RESUMEN_1.1: Metodo para sacar un resumen de un Trabajador particular, excepto password
      */
     public void resumen_trabajador_especifico_s_passwd(int ID_enc)
     {
@@ -64,7 +79,7 @@ public class Datos_BD
     }
     
     /**
-     * RESUMEN_1.1: Metodos para sacar un resumen de un Encargado particular completo
+     * RESUMEN_1.1: Metodo para sacar un resumen de un Trabajador particular completo
      */
     public void resumen_trabajador_especifico_c_passwd(int ID_enc)
     {
@@ -72,7 +87,7 @@ public class Datos_BD
     }
     
     /**
-     * RESUMEN_1.2: Metodos para sacar un resumen de todos los Encargados
+     * RESUMEN_1.2: Metodo para sacar un resumen de todos los Trabajadores
      */
     public void resumen_todos_trabajadores()
     {
@@ -80,7 +95,10 @@ public class Datos_BD
             trabajador.resumen_trabajador_completo_s_passwd();
         }
     }
-              
+    
+    /**
+     * AYUDANTE_1: Metodo para crear los trabajadores iniciales de la base de datos
+     */       
     private void rellena_trabajadores_iniciales()
     {      
         nuevo_trabajador("11111111A", 662872195, "Madrid", "Pablo", "Iglesias", 
