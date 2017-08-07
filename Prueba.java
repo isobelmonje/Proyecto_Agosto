@@ -1,4 +1,5 @@
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Write a description of class Prueba1 here.
  *
@@ -6,8 +7,7 @@
  * @version (a version number or a date)
  */
 
-import java.util.ArrayList;
-import java.util.List;
+
 public class Prueba
 {
     // Declaramos y creamos la base de datos de forma Global
@@ -20,7 +20,12 @@ public class Prueba
     private static String tipo_trabajador;
     private static String DNI;
     private static String password;
-    private static boolean validation; 
+    private static boolean validation;
+    
+    // Declaramos las variables de Menu
+    private static Menu menu;
+    private static boolean menu_activo = true;
+    private static String respuesta = "0";
     
     // Declaramos el objeto trabajador para almacenar el usuario activo
     private static Trabajador trabajador;
@@ -35,9 +40,15 @@ public class Prueba
             new Prueba().login_validation_or_exit();
         }
         
-        // Opciones Despues de validar
-        new Prueba().prompt_despues_de_validar();
-               
+        // Entrada a Menu de Trabajador
+        while(menu_activo == true){
+            menu = new Menu(trabajador.tipo_trabajador(), respuesta);
+            menu.print();
+            respuesta = input.invocar();
+            if(respuesta.equals("s")){menu_activo = false;}
+            
+        }
+        
     }
     
     private void bienvenida(){
@@ -97,26 +108,16 @@ public class Prueba
         }
     }
     
-    private void prompt_despues_de_validar(){
-        if(trabajador.tipo_trabajador().toLowerCase().equals("encargado")){
-            System.out.println("¿Que desea hacer?:");
-            System.out.println("  (1) - Operaciones con Trabajadores dentro de la Base de Datos");
-            System.out.println("  (2) - Operaciones con Clientes dentro de la Base de Datos");
-            System.out.println("  (3) - Operaciones con tareas de Comerciales o Mecanicos");
-            System.out.println("  (4) - Comprobar estado de Revisiones");
-            System.out.println("  (5) - Operaciones con Promociones Comerciales");
-            System.out.println("  (6) - Salir");
-        }
-        else if(trabajador.tipo_trabajador().toLowerCase().equals("comercial")){
-            System.out.println("¿Que desea hacer?:");
-            System.out.println("  (1) - Ver Promociones Actuales");
-            System.out.println("  (2) - Operaciones con Clientes dentro de la Base de Datos");
-            System.out.println("  (3) - Salir");
-        }
-        else{
-            System.out.println("¿Que desea hacer?:");
-            System.out.println("  (1) - Operaciones con Tareas Asignadas");
-            System.out.println("  (2) - Salir");
-        }
-    }
+    // private void menu_encargado_2(){
+        // System.out.println("¿Que desea hacer?:");
+        // System.out.println("  (1) - Ver Resumen de Todos los Clientes");
+        // System.out.println("  (2) - Ver Resumen de Cliente por DNI");
+        // System.out.println("  (2) - Añadir Cliente");
+        // System.out.println("  (2) - Eliminar Cliente existente");
+        // System.out.println("  (2) - Modificar datos de Cliente");
+        // System.out.println("  (2) - Gestionar Vehiculos de Cliente por DNI");
+        // System.out.println("  (2) - Ir al menu anterior");
+        // System.out.println("  (2) - Salir del programa");
+    // }
+    
 }
