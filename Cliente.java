@@ -1,37 +1,95 @@
-
 /**
- * Write a description of class Cliente here.
+ * La clase cliente .
  *
  * @author (your name)
  * @version (a version number or a date)
  */
 public class Cliente extends Persona
-{
-    // instance variables - replace the example below with your own
-    private int numero_de_cliente;
+{  
+    private int ID_cliente;
+    private String fecha_alta;
 
     /**
-     * Constructor for objects of class Trabajador
-     */
+    * CONSTRUCTOR_1: Construye objetos de la clase Cliente e inicializa las variables
+    */
     public Cliente()
     {
-        // initialise instance variables
-        numero_de_cliente = 000000000;
+        ID_cliente = 0;
+    }
+    
+    /**
+    * CONSTRUCTOR_2: Construye objetos de la clase Cliente e inicializa las variables con parametros
+    *                   que le pasará el usuario.
+    */
+    public Cliente(String DNI_cl, int tlfn_personal_cl, String direccion_cl, String nombre_cl,
+                        String primer_apellido_cl, String segundo_apellido_cl, String fecha_nacimiento_cl,
+                        String fecha_alta_cl, int ID_cliente_cl)
+    {
+        modificar_DNI(DNI_cl);
+        modificar_tlfn_per(tlfn_personal_cl);
+        modificar_direccion(direccion_cl);
+        modificar_nombre(nombre_cl);
+        modificar_primer_apellido(primer_apellido_cl);
+        modificar_segundo_apellido(segundo_apellido_cl);
+        modificar_fecha_de_nacimiento(fecha_nacimiento_cl);
+        modificar_fecha_alta(fecha_alta_cl);
+        
+        ID_cliente = ID_cliente_cl;
     }
 
     /**
-     * 
-     */
-    
+    * MODIFICADOR_1: Metodo para modificar el ID del Cliente
+    */
     public void modificar_numero_de_cliente(int Nuevo_dato)
     {
-        // put your code here
-        numero_de_cliente = Nuevo_dato;
+        ID_cliente = Nuevo_dato;
     }
     
-    public int numero_de_cliente()
+    /**
+    * MODIFICADOR_2: Metodo para modificar TODOS los datos de Cliente, incluyendo
+    * los de Personas
+    */
+    public void modificar_todo_cliente(String DNI_cl, int tlfn_personal_cl, String direccion_cl,
+                        String nombre_cl, String primer_apellido_cl, String segundo_apellido_cl,
+                        String fecha_nacimiento_cl, String fecha_alta_cl, int ID_cliente_cl)
     {
-        // put your code here
-        return numero_de_cliente;
+        modificar_DNI(DNI_cl);
+        modificar_tlfn_per(tlfn_personal_cl);
+        modificar_direccion(direccion_cl);
+        modificar_nombre(nombre_cl);
+        modificar_primer_apellido(primer_apellido_cl);
+        modificar_segundo_apellido(segundo_apellido_cl);
+        modificar_fecha_de_nacimiento(fecha_nacimiento_cl);
+        modificar_fecha_alta(fecha_alta_cl);
+        
+        ID_cliente = ID_cliente_cl;
     }
+    
+    /**
+    * ACCESOR_1: Metodo para acceder al ID del cliente
+    */
+    public int ID_cliente()
+    {
+        return ID_cliente;
+    }
+   
+    /**
+    * RESUMEN_1: Resumen de todas las variables dentro de Cliente()
+    */
+    public void resumen_cliente()
+    {
+        System.out.println("# # # # # # # # # # # # # # # # # # # # # # # # # # #");
+        System.out.println("RESUMEN DEL CLIENTE: " + nombre() + " " + primer_apellido());
+        System.out.println("Nombre completo: " + nombre() + " " + primer_apellido() + " " + segundo_apellido());
+        System.out.println("DNI: " + DNI());
+        System.out.println("Telefono personal: " + tlfn_per());
+        System.out.println("Direccion: " + direccion());
+        System.out.println("Fecha de nacimiento: " + fecha_de_nacimiento());
+        System.out.println("Fecha de alta: " + fecha_alta());
+        System.out.println("Estado de alta: " + alta());
+        System.out.println("ID del cliente: " + ID_cliente);
+        System.out.println("# # # # # # # # # # # # # # # # # # # # # # # # # # #");
+        System.out.println("");
+    }
+    
 }

@@ -14,6 +14,7 @@ public class Datos_BD
     private ArrayList<Trabajador> lista_trabajadores;
     private ArrayList<Cliente> lista_clientes;
     private ArrayList<Vehiculo> lista_vehiculos;
+    private Input input = new Input();
 
      /**
      * CONSTRUCTOR_1: Construye Base de Datos para todos los objetos
@@ -27,8 +28,10 @@ public class Datos_BD
         rellena_trabajadores_iniciales();
     }
     
+    //AÑADIR TRABAJADORES A BASE DE DATOS
+    
     /**
-     * MODIFICADOR_1.1.1: Metodos para añadir nuevos Encargados a la Base de Datos rellenando todos 
+     * MODIFICADOR_1.1.1a: Metodos para añadir nuevos Encargados a la Base de Datos rellenando todos 
      * los parametros
      */
     public void nuevo_trabajador(String DNI, int tlfn_personal, String direccion, String nombre, 
@@ -36,24 +39,161 @@ public class Datos_BD
                                 String fecha_alta, int ID_trabajador, int tlfn_empresa, 
                                 String tipo_trabajador, String turno, String password)
     {
-        Trabajador trabajador = new Trabajador(DNI, tlfn_personal, direccion, nombre, primer_apellido,
-                                                segundo_apellido, fecha_nacimiento, fecha_alta,
-                                                ID_trabajador, tlfn_empresa, tipo_trabajador, turno,
-                                                password);
-        lista_trabajadores.add(trabajador);
+        if(comprobar_trabajador(DNI).DNI().equals("N/A")){
+            Trabajador trabajador = new Trabajador(DNI, tlfn_personal, direccion, nombre, primer_apellido, 
+                                                    segundo_apellido, fecha_nacimiento, fecha_alta, 
+                                                    ID_trabajador, tlfn_empresa, tipo_trabajador, 
+                                                    turno, password);
+            lista_trabajadores.add(trabajador);
+        }
+        else{
+            System.out.println("El usuario con DNI " + DNI + " ya existe en la base de datos");
+        }
     }
     
     /**
-     * MODIFICADOR_1.1.2: Metodos para añadir nuevos Encargados a la Base de Datos pasando un objeto
+     * MODIFICADOR_1.1.1b: Metodos para añadir nuevos Encargados a la Base de Datos rellenando todos 
+     * los parametros
+     */
+    public void nuevo_trabajador_prompt()
+    {
+        System.out.println("Por favor introduzca los datos del Nuevo trabajador:");
+        System.out.println("");
+        
+        boolean DNI_existe = true;
+        
+        while(DNI_existe == true){
+            System.out.println("DNI:");
+            String DNI = input.invocar();
+            System.out.println("");
+            
+            if(comprobar_trabajador(DNI).DNI().equals("N/A")){
+                DNI_existe = false;
+                
+                System.out.println("Telefono Personal:");
+                int tlfn_personal = Integer.parseInt(input.invocar());
+                System.out.println("");
+                System.out.println("Direccion:");
+                String direccion = input.invocar();
+                System.out.println("");
+                System.out.println("Nombre:");
+                String nombre = input.invocar();
+                System.out.println("");
+                System.out.println("Primer Apellido:");
+                String primer_apellido = input.invocar();
+                System.out.println("");
+                System.out.println("Segundo Apellido:");
+                String segundo_apellido = input.invocar();
+                System.out.println("");
+                System.out.println("Fecha de Nacimiento:");
+                String fecha_nacimiento = input.invocar();
+                System.out.println("");
+                System.out.println("Fecha de Alta:");
+                String fecha_alta = input.invocar();
+                System.out.println("");
+                System.out.println("ID del trabajador:");
+                int ID_trabajador = Integer.parseInt(input.invocar());
+                System.out.println("");
+                System.out.println("Telefono de Empresa:");
+                int tlfn_empresa = Integer.parseInt(input.invocar());
+                System.out.println("");
+                System.out.println("Tipo de Trabajador:");
+                String tipo_trabajador = input.invocar();
+                System.out.println("");
+                System.out.println("Turno:");
+                String turno = input.invocar();
+                System.out.println("");
+                System.out.println("Password:");
+                String password = input.invocar();
+                System.out.println("");
+                Trabajador trabajador = new Trabajador(DNI, tlfn_personal, direccion, nombre, primer_apellido,
+                                                segundo_apellido, fecha_nacimiento, fecha_alta,
+                                                ID_trabajador, tlfn_empresa, tipo_trabajador, turno,
+                                                password);
+                lista_trabajadores.add(trabajador);
+                System.out.println("El trabajador ha sido agregado con exito!!");
+                System.out.println("");
+            }
+            else{
+                System.out.println("El DNI ya existe en la base de Datos, por favor introduzca otro");
+            }
+        }
+    }
+    
+    /**
+     * MODIFICADOR_1.1.1c: Metodo para añadir un nuevo Trabajador a la Base de Datos pasando un objeto
      * Trabajador() previamente creado
      */
     public void nuevo_trabajador(Trabajador trabajador)
     {
-        lista_trabajadores.add(trabajador);
+        String DNI = trabajador.DNI();
+        if(comprobar_trabajador(DNI).DNI().equals("N/A")){
+            lista_trabajadores.add(trabajador);
+        }
+        else{
+            System.out.println("El usuario con DNI " + DNI + " ya existe en la base de datos");
+        }
     }
     
+    //ELIMINAR TRABAJADORES DE BASE DE DATOS
+    
+        /**
+     * MODIFICADOR_1.1.2a: Metodos para ELIMINAR un Trabajador de la Base de Datos por DNI
+     */
+    public void eliminar_trabajador_prompt(String DNI_master_user)
+    {
+        Trabajador trabajador = new Trabajador();    
+        boolean IsMaster = true;
+        
+        while(IsMaster == true){
+            trabajador = comprobar_trabajador_prompt();
+            if(trabajador.DNI().toLowerCase().equals(DNI_master_user.toLowerCase())){
+                System.out.println("No puede eliminarse a si mismo de la base de datos");
+            }
+            else if(!trabajador.DNI().equals("N/A")){
+                lista_trabajadores.remove(trabajador);
+                System.out.println("El trabajador ha sido eliminado con exito");
+                System.out.println("");
+                IsMaster = false;
+            }
+        }
+    }
+        
     /**
-    * ACCESOR_2: Metodo para verificar si existe un trabajador especifico en la BD por DNI y devolverlo
+     * MODIFICADOR_1.1.2b: Metodos para eliminar un Trabajador de la Base de Datos pasando un objeto
+     * Trabajador() previamente creado
+     */
+    public void eliminar_trabajador(Trabajador trabajador)
+    {
+        lista_trabajadores.remove(trabajador);
+    }
+    
+    //MODIFICAR DATO TRABAJADOR DE BASE DE DATOS
+    
+    public void modificar_trabajador_prompt()
+    {
+        Trabajador trabajador = new Trabajador();    
+        trabajador = comprobar_trabajador_prompt();
+        if(!trabajador.DNI().toLowerCase().equals("NA")){
+            //System.out.println("No se encuentra un Trabajador con ese DNI en la base de datos");
+            lista_trabajadores.remove(trabajador);
+            System.out.println("El trabajador ha sido eliminado con exito");
+        }
+        // else{
+            // lista_trabajadores.remove(trabajador);
+            // System.out.println("El trabajador ha sido eliminado con exito");
+        // }
+        
+    }
+    
+    
+    
+    
+    
+    //VERICACION SI UN TRABAJADOR EXISTE EN LA BASE DE DATOS
+    
+    /**
+    * ACCESOR_1a: Metodo para verificar si existe un trabajador especifico en la BD por DNI y devolverlo
     */
     public Trabajador comprobar_trabajador(String DNI)
     {
@@ -67,7 +207,27 @@ public class Datos_BD
         }
         return trabajador;
     }
-    
+            
+    /**
+    * ACCESOR_1b: Metodo para verificar si existe un trabajador especifico en la BD por DNI y devolverlo
+    */
+    public Trabajador comprobar_trabajador_prompt()
+    {
+        System.out.println("Introduzca el DNI del trabajador:");
+        System.out.println("");
+        String DNI_accesor_1b = input.invocar();
+        System.out.println("");
+        
+        Trabajador trabajador_acc_1b = new Trabajador();
+        trabajador_acc_1b = comprobar_trabajador(DNI_accesor_1b);
+        
+        if(trabajador_acc_1b.DNI().equals("N/A")){
+            System.out.println("No se encuentra un Trabajador con ese DNI en la base de datos");
+            System.out.println("");
+        }
+
+        return trabajador_acc_1b;
+    }
     
     
     /**
@@ -91,8 +251,14 @@ public class Datos_BD
      */
     public void resumen_todos_trabajadores()
     {
-        for(Trabajador trabajador : lista_trabajadores){
-            trabajador.resumen_trabajador_completo_s_passwd();
+        if(lista_trabajadores.isEmpty()){
+            System.out.println("No hay trabajadores en la Base de Datos");
+            System.out.println("");
+        }
+        else{
+            for(Trabajador trabajador : lista_trabajadores){
+                trabajador.resumen_trabajador_completo_s_passwd();
+            }
         }
     }
     
