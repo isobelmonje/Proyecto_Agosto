@@ -38,6 +38,28 @@ public class Menu
                 //Menu_mec_1();
             }
         }
+        else if(tipo_menu.equals("0.2")){
+            if(tipo_trabajador.toLowerCase().equals("encargado")){
+                Menu_enc_0_2();
+            }
+            else if (tipo_trabajador.toLowerCase().equals("comercial")){
+                //Menu_com_1();
+            }
+            else{
+                //Menu_mec_1();
+            }
+        }
+        else if(tipo_menu.equals("0.3")){
+            if(tipo_trabajador.toLowerCase().equals("encargado")){
+                Menu_enc_0_3();
+            }
+            else if (tipo_trabajador.toLowerCase().equals("comercial")){
+                //Menu_com_1();
+            }
+            else{
+                //Menu_mec_1();
+            }
+        }
     }
     
     // ENCARGADOS
@@ -49,9 +71,10 @@ public class Menu
     {
         opciones_menu.add("Operaciones con Trabajadores dentro de la Base de Datos"); //0.1
         opciones_menu.add("Operaciones con Clientes dentro de la Base de Datos"); //0.2
-        opciones_menu.add("Operaciones con tareas de Comerciales o Mecanicos"); //0.3
-        // opciones_menu.add("Comprobar estado de Revisiones"); //0.4
-        opciones_menu.add("Operaciones con Promociones Comerciales"); //0.4
+        opciones_menu.add("Operaciones con Vehiculos dentro de la Base de Datos"); //0.3
+        opciones_menu.add("Operaciones con tareas de Comerciales o Mecanicos"); //0.4
+        // opciones_menu.add("Comprobar estado de Revisiones"); //0.5
+        opciones_menu.add("Operaciones con Promociones Comerciales"); //0.5
     }
     
     public void Menu_enc_0_1()
@@ -70,17 +93,25 @@ public class Menu
         opciones_menu.add("Añadir Cliente");
         opciones_menu.add("Eliminar Cliente existente por DNI");
         opciones_menu.add("Modificar datos de Cliente por DNI");
-        opciones_menu.add("Gestionar Vehiculos de Cliente por DNI");
+        opciones_menu.add("Ver Vehiculos de Cliente por DNI");
     }
-        
-    public void Menu_enc_0_3()
+    
+     public void Menu_enc_0_3()
+    {
+        opciones_menu.add("Ver Resumen de Vehiculo por matricula");
+        opciones_menu.add("Añadir Vehiculo a cliente por DNI");
+        opciones_menu.add("Eliminar Vehiculo existente por matricula");
+        opciones_menu.add("Modificar datos de Vehiculo por matricula");
+    }
+    
+    public void Menu_enc_0_4()
     {
         opciones_menu.add("Asignar tareas a Comerciales");
         opciones_menu.add("Asignar tareas a Mecanicos");
         opciones_menu.add("Ver Resumen de Tareas");
     }
     
-    public void Menu_enc_0_4()
+    public void Menu_enc_0_5()
     {
         opciones_menu.add("Ver Promociones Comerciales");
         opciones_menu.add("Crear Nueva Promocion Comercial");

@@ -7,7 +7,8 @@
 public class Cliente extends Persona
 {  
     private int ID_cliente;
-    private String fecha_alta;
+    
+    // CONSTRUCTORES
 
     /**
     * CONSTRUCTOR_1: Construye objetos de la clase Cliente e inicializa las variables
@@ -36,11 +37,13 @@ public class Cliente extends Persona
         
         ID_cliente = ID_cliente_cl;
     }
+    
+    // MODIFICADORES
 
     /**
     * MODIFICADOR_1: Metodo para modificar el ID del Cliente
     */
-    public void modificar_numero_de_cliente(int Nuevo_dato)
+    public void modificar_ID_cliente(int Nuevo_dato)
     {
         ID_cliente = Nuevo_dato;
     }
@@ -65,6 +68,8 @@ public class Cliente extends Persona
         ID_cliente = ID_cliente_cl;
     }
     
+    // ACCESORES
+    
     /**
     * ACCESOR_1: Metodo para acceder al ID del cliente
     */
@@ -72,6 +77,8 @@ public class Cliente extends Persona
     {
         return ID_cliente;
     }
+    
+    // RESUMENES
    
     /**
     * RESUMEN_1: Resumen de todas las variables dentro de Cliente()
@@ -91,5 +98,4 @@ public class Cliente extends Persona
         System.out.println("# # # # # # # # # # # # # # # # # # # # # # # # # # #");
         System.out.println("");
     }
-    
 }
