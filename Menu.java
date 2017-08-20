@@ -60,6 +60,17 @@ public class Menu
                 //Menu_mec_1();
             }
         }
+        else if(tipo_menu.equals("0.4")){
+            if(tipo_trabajador.toLowerCase().equals("encargado")){
+                Menu_enc_0_4();
+            }
+            else if (tipo_trabajador.toLowerCase().equals("comercial")){
+                //Menu_com_1();
+            }
+            else{
+                //Menu_mec_1();
+            }
+        }
     }
     
     // ENCARGADOS
@@ -108,15 +119,15 @@ public class Menu
     {
         opciones_menu.add("Asignar tareas a Comerciales");
         opciones_menu.add("Asignar tareas a Mecanicos");
-        opciones_menu.add("Ver Resumen de Tareas");
+        opciones_menu.add("Ver Resumen de Fichas");
     }
     
-    public void Menu_enc_0_5()
-    {
-        opciones_menu.add("Ver Promociones Comerciales");
-        opciones_menu.add("Crear Nueva Promocion Comercial");
-        opciones_menu.add("Cerrar Promocion Comercial");
-    }
+    // public void Menu_enc_0_5()
+    // {
+        // opciones_menu.add("Ver Promociones Comerciales");
+        // opciones_menu.add("Crear Nueva Promocion Comercial");
+        // opciones_menu.add("Cerrar Promocion Comercial");
+    // }
     
     // COMERCIALES
     

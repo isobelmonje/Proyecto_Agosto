@@ -8,8 +8,8 @@
 
 public class Vehiculo
 {
-    private String vehiculo;
-    private String tipo_vehiculo;
+    private String vehiculo; //Coche, Moto, Camion, Furgoneta
+    private String tipo_vehiculo; //N/A, Servicios, Carretera
     private String matricula;
     private String fecha_matriculacion;
     private String fecha_ITV_ultima;

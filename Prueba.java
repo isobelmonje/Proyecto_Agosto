@@ -7,7 +7,6 @@ import java.util.List;
  * @version (a version number or a date)
  */
 
-
 public class Prueba
 {
     // Declaramos y creamos la base de datos de forma Global
@@ -158,9 +157,19 @@ public class Prueba
                 bd.modificar_vehiculo_prompt();
                 respuesta = "0.3";
             }
+            
+            // ********** TAREAS **********
+            
+            else if(respuesta.equals("0.4.1")){     //Añadir Tarea a Comercial (0.4.1)
+                bd.nueva_ficha_prompt("comercial");
+                respuesta = "0.4";
+            }
+            else if(respuesta.equals("0.4.2")){     //Añadir Tarea a Mecanico (0.4.2)
+                bd.nueva_ficha_prompt("mecanico");
+                respuesta = "0.4";
+            }
 
             else{respuesta_cache = respuesta;}
-
         }       
     }
     

@@ -12,6 +12,7 @@ public class Datos_BD
     private ArrayList<Trabajador> lista_trabajadores;
     private ArrayList<Cliente> lista_clientes;
     private ArrayList<Vehiculo> lista_vehiculos;
+    private ArrayList<Ficha> lista_fichas;
     private Input input = new Input();
 
     /**
@@ -22,6 +23,7 @@ public class Datos_BD
         lista_trabajadores = new ArrayList<Trabajador>();
         lista_clientes = new ArrayList<Cliente>();
         lista_vehiculos = new ArrayList<Vehiculo>() ;
+        lista_fichas = new ArrayList<Ficha>();
         
         rellena_trabajadores_iniciales();
         rellena_clientes_iniciales();
@@ -307,6 +309,43 @@ public class Datos_BD
 
         return trabajador_acc_1b;
     }
+    
+        /**
+    * ACCESOR_1c: Metodo para verificar si existe un trabajador especifico en la BD por ID y devolverlo
+    */
+    public Trabajador comprobar_trabajador_ID(int ID_trabajador)
+    {
+        Trabajador trabajador = new Trabajador();
+        
+        for(Trabajador trabajador_loop : lista_trabajadores){
+           if(trabajador_loop.ID_trabajador() == ID_trabajador){
+               trabajador = trabajador_loop;
+               break;
+           }
+        }
+        return trabajador;
+    }
+    
+    /**
+    * ACCESOR_1d: Metodo para verificar si existe un trabajador especifico en la BD por ID y devolverlo
+    */
+    public Trabajador comprobar_trabajador_ID_prompt()
+    {
+        System.out.println("Introduzca el ID del trabajador:");
+        System.out.println("");
+        int ID_accesor_1d = Integer.parseInt(input.invocar());
+        System.out.println("");
+        
+        Trabajador trabajador_acc_1d = new Trabajador();
+        trabajador_acc_1d = comprobar_trabajador_ID(ID_accesor_1d);
+
+        if(trabajador_acc_1d.ID_trabajador() == 0){
+            System.out.println("No se encuentra un Trabajador con ese ID en la base de datos");
+            System.out.println("");
+        }
+
+        return trabajador_acc_1d;
+    }    
     
     // RESUMENES
     
@@ -1142,7 +1181,7 @@ public class Datos_BD
     */       
     private void rellena_vehiculos_iniciales()
     {      
-        nuevo_vehiculo("Coche", "Monovolumen", "8473HRX", "01/07/2013", "15/07/2017",
+        nuevo_vehiculo("Coche", "Servicios", "8473HRX", "01/07/2013", "15/07/2017",
                         "Toyota", "Auris", "Gasolina", "Azul Abisal", "Manual", 1, 4,
                         5, true, false, true);
         
@@ -1150,8 +1189,512 @@ public class Datos_BD
                         "Toyota", "Auris", "Gasolina", "Azul Abisal", "Manual", 2, 4,
                         5, true, false, true);
                         
-        nuevo_vehiculo("Camion Servicios", "Bomberos", "4871GPO", "01/07/2013", "15/07/2017",
+        nuevo_vehiculo("Camion", "Servicios", "4871GPO", "01/07/2013", "15/07/2017",
                         "Mercedes", "Vito", "Diesel", "Blanco", "Automatico", 2, 4,
                         5, true, false, true);
     }
+        
+     
+    
+    
+    
+    
+    
+    // ########## 4 - FICHAS ##########
+    
+    //AÑADIR FICHAS A BASE DE DATOS
+    
+    /**
+     * MODIFICADOR_CL_1.1.1a: Metodos para añadir nuevos Fichas a la Base de Datos
+     */
+    public void nueva_ficha_prompt(String tipo_trabajador)
+    {
+        if(tipo_trabajador.toLowerCase().equals("comercial")){
+            System.out.println("LISTADO DE COMERCIALES:");
+        }
+        else{
+            System.out.println("LISTADO DE MECANICOS:");
+        }
+        System.out.println("");
+                        
+        Trabajador trabajador = new Trabajador();
+        while(trabajador.ID_trabajador() == 0){
+            for(Trabajador trabajador_loop : lista_trabajadores){
+                if(trabajador_loop.tipo_trabajador().toLowerCase().equals(tipo_trabajador.toLowerCase())){
+                    System.out.print("  ");
+                    System.out.println(trabajador_loop.nombre() + " " + trabajador_loop.primer_apellido()
+                                        + " " + trabajador_loop.segundo_apellido() + " (" + 
+                                    trabajador_loop.ID_trabajador() + ")");
+                }
+            }
+            System.out.println("");
+            trabajador = comprobar_trabajador_ID_prompt();
+        }
+        
+        Vehiculo vehiculo = new Vehiculo();
+        while(vehiculo.matricula().equals("N/A")){
+            vehiculo = comprobar_vehiculo_prompt();
+        }
+        
+        Ficha ficha = new Ficha(vehiculo, trabajador);
+        boolean continuar = true;
+        String respuesta;
+        
+        while(continuar){
+            System.out.println("Desea añadir tareas?:(s / n)");
+            System.out.println("");
+            respuesta = input.invocar();
+            
+            if(respuesta.toLowerCase().equals("s")){
+                System.out.println("Introduzca la nueva tarea:");
+                System.out.println("");
+                respuesta = input.invocar();
+                ficha.nueva_tarea(respuesta);
+            }
+            else if(respuesta.toLowerCase().equals("n")){
+                continuar = false;
+            }
+            else{
+                System.out.println("Esa no es una respuesta correcta.");
+            }
+        }
+        
+        ficha.resumen_tareas();
+        
+        //lista_fichas.add(ficha);
+    }
+    
+    // /**
+     // * MODIFICADOR_CL_1.1.1b: Metodos para añadir nuevos Vehiculos a la Base de Datos rellenando todos 
+     // * los parametros
+     // */
+    // public void nuevo_vehiculo_prompt()
+    // {
+        // System.out.println("Por favor introduzca los datos del Nuevo vehiculo:");
+        // System.out.println("");
+        
+        // boolean matricula_existe = true;
+        
+        // while(matricula_existe == true){
+            // System.out.println("Matricula:");
+            // String matricula = input.invocar();
+            // System.out.println("");
+            
+            // if(comprobar_vehiculo(matricula).matricula().equals("N/A")){
+                // matricula_existe = false;
+                
+                // System.out.println("Vehiculo:");
+                // String vehiculo = input.invocar();
+                // System.out.println("");
+                // System.out.println("Tipo de vehiculo:");
+                // String tipo_vehiculo = input.invocar();
+                // System.out.println("");
+                // System.out.println("Fecha de matriculacion:");
+                // String fecha_matriculacion = input.invocar();
+                // System.out.println("");
+                // System.out.println("Fecha de ultima ITV:");
+                // String fecha_ITV_ultima = input.invocar();
+                // System.out.println("");
+                // System.out.println("Marca:");
+                // String marca = input.invocar();
+                // System.out.println("");
+                // System.out.println("Modelo:");
+                // String modelo = input.invocar();
+                // System.out.println("");
+                // System.out.println("Tipo de combustible:");
+                // String combustible = input.invocar();
+                // System.out.println("");
+                // System.out.println("Color:");
+                // String color = input.invocar();
+                // System.out.println("");
+                // System.out.println("Tipo de cambio:");
+                // String tipo_cambio = input.invocar();
+                // System.out.println("");
+                // System.out.println("Cliente(ID) al que el vehiculo pertenece:");
+                // int ID_cliente_pertenece = Integer.parseInt(input.invocar());
+                // System.out.println("");
+                // System.out.println("Numero de ruedas:");
+                // int num_ruedas = Integer.parseInt(input.invocar());
+                // System.out.println("");
+                // System.out.println("Numero de puertas:");
+                // int num_puertas = Integer.parseInt(input.invocar());
+                // System.out.println("");
+                // System.out.println("Existencia de ABS:");
+                // boolean ABS = Boolean.parseBoolean(input.invocar());
+                // System.out.println("");
+                // System.out.println("Existencia de GPS:");
+                // boolean GPS = Boolean.parseBoolean(input.invocar());
+                // System.out.println("");
+                // System.out.println("Existencia de aire acondicionado:");
+                // boolean aire_acondicionado = Boolean.parseBoolean(input.invocar());
+                // System.out.println("");
+                // Vehiculo vehic = new Vehiculo(vehiculo, tipo_vehiculo, matricula, fecha_matriculacion,
+                                                // fecha_ITV_ultima, marca, modelo, combustible, color,
+                                                // tipo_cambio, ID_cliente_pertenece, num_ruedas,
+                                                // num_puertas, ABS, GPS, aire_acondicionado);
+                // lista_vehiculos.add(vehic);
+                // System.out.println("El vehiculo ha sido agregado con exito!!");
+                // System.out.println("");
+            // }
+            // else{
+                // System.out.println("La matricula ya existe en la base de Datos, por favor introduzca otra");
+            // }
+        // }
+    // }
+    
+    // /**
+     // * MODIFICADOR_CL_1.1.1c: Metodo para añadir un nuevo Vehiculo a la Base de Datos pasando un objeto
+     // * Vehiculo() previamente creado
+     // */
+    // public void nuevo_vehiculo(Vehiculo vehiculo)
+    // {
+        // String matricula = vehiculo.matricula();
+        // if(comprobar_vehiculo(matricula).matricula().equals("N/A")){
+            // lista_vehiculos.add(vehiculo);
+        // }
+        // else{
+            // System.out.println("La matricula ya existe en la base de Datos, por favor introduzca otra");
+        // }
+    // }
+    
+        // /**
+     // * MODIFICADOR_CL_1.1.1d: Metodos para añadir nuevos Vehiculos a la Base de Datos rellenando todos 
+     // * los parametros para un cliente especifico
+     // */
+    // public void nuevo_vehiculo_de_cliente_prompt(int ID_cliente_pertenece)
+    // {
+        // System.out.println("Por favor introduzca los datos del Nuevo vehiculo:");
+        // System.out.println("");
+        
+        // boolean matricula_existe = true;
+        
+        // while(matricula_existe == true){
+            // System.out.println("Matricula:");
+            // String matricula = input.invocar();
+            // System.out.println("");
+            
+            // if(comprobar_vehiculo(matricula).matricula().equals("N/A")){
+                // matricula_existe = false;
+                
+                // System.out.println("Vehiculo:");
+                // String vehiculo = input.invocar();
+                // System.out.println("");
+                // System.out.println("Tipo de vehiculo:");
+                // String tipo_vehiculo = input.invocar();
+                // System.out.println("");
+                // System.out.println("Fecha de matriculacion:");
+                // String fecha_matriculacion = input.invocar();
+                // System.out.println("");
+                // System.out.println("Fecha de ultima ITV:");
+                // String fecha_ITV_ultima = input.invocar();
+                // System.out.println("");
+                // System.out.println("Marca:");
+                // String marca = input.invocar();
+                // System.out.println("");
+                // System.out.println("Modelo:");
+                // String modelo = input.invocar();
+                // System.out.println("");
+                // System.out.println("Tipo de combustible:");
+                // String combustible = input.invocar();
+                // System.out.println("");
+                // System.out.println("Color:");
+                // String color = input.invocar();
+                // System.out.println("");
+                // System.out.println("Tipo de cambio:");
+                // String tipo_cambio = input.invocar();
+                // System.out.println("");
+                // System.out.println("Numero de ruedas:");
+                // int num_ruedas = Integer.parseInt(input.invocar());
+                // System.out.println("");
+                // System.out.println("Numero de puertas:");
+                // int num_puertas = Integer.parseInt(input.invocar());
+                // System.out.println("");
+                // System.out.println("Existencia de ABS:");
+                // boolean ABS = Boolean.parseBoolean(input.invocar());
+                // System.out.println("");
+                // System.out.println("Existencia de GPS:");
+                // boolean GPS = Boolean.parseBoolean(input.invocar());
+                // System.out.println("");
+                // System.out.println("Existencia de aire acondicionado:");
+                // boolean aire_acondicionado = Boolean.parseBoolean(input.invocar());
+                // System.out.println("");
+                // Vehiculo vehic = new Vehiculo(vehiculo, tipo_vehiculo, matricula, fecha_matriculacion,
+                                                // fecha_ITV_ultima, marca, modelo, combustible, color,
+                                                // tipo_cambio, ID_cliente_pertenece, num_ruedas,
+                                                // num_puertas, ABS, GPS, aire_acondicionado);
+                // lista_vehiculos.add(vehic);
+                // System.out.println("El vehiculo ha sido agregado con exito!!");
+                // System.out.println("");
+            // }
+            // else{
+                // System.out.println("La matricula ya existe en la base de Datos, por favor introduzca otra");
+            // }
+        // }
+    // }
+    
+    // //ELIMINAR VEHICULOS DE BASE DE DATOS
+    
+        // /**
+     // * MODIFICADOR_VL_1.1.2a: Metodos para ELIMINAR un Vehiculo de la Base de Datos por matricula
+     // */
+    // public void eliminar_vehiculo_prompt()
+    // {
+        // Vehiculo vehiculo = new Vehiculo();
+        
+        // while(vehiculo.matricula().equals("N/A")){
+            // vehiculo = comprobar_vehiculo_prompt(); // Devuelve No existe" si no se encuentra
+        // }
+        
+        // System.out.println("¿Esta seguro que desea eliminarlo?: (s / n)");
+        // System.out.println("");
+        // String continuar = input.invocar().toLowerCase();
+        // boolean no_existe_respuesta = true;
+        
+        // while(no_existe_respuesta == true){
+            // if(continuar.equals("s")){
+                // lista_vehiculos.remove(vehiculo);
+                // System.out.println("El vehiculo ha sido eliminado con exito");
+                // no_existe_respuesta = false;
+            // }
+            // else if(continuar.equals("n")){
+                // no_existe_respuesta = false;
+            // }
+        // }
+        
+        // System.out.println("");
+    // }
+        
+    // /**
+     // * MODIFICADOR_VL_1.1.2b: Metodos para eliminar un Vehiculo de la Base de Datos pasando un objeto
+     // * Vehiculo() previamente creado
+     // */
+    // public void eliminar_vehiculo(Vehiculo vehiculo)
+    // {
+        // lista_vehiculos.remove(vehiculo);
+    // }
+    
+    // //MODIFICAR DATOS VEHICULO EN BASE DE DATOS
+    
+    // public void modificar_vehiculo_prompt()
+    // {
+        // Vehiculo vehiculo = new Vehiculo();
+        // int ID = -100;
+        // boolean salir = false;
+        // while(vehiculo.matricula().equals("N/A")){
+            // vehiculo = comprobar_vehiculo_prompt(); //Devuelve No existe" si no se encuentra
+        // }
+                
+        // for(Vehiculo vehiculo_loop : lista_vehiculos){
+            // ID = lista_vehiculos.indexOf(vehiculo_loop);
+            // if(vehiculo_loop.matricula().equals(vehiculo.matricula())){break;}
+        // }
+        
+        // while(salir == false){
+            // System.out.println("Indique que tipo de datos desdea modificar:");
+            // System.out.println(" (1)  - Vehiculo (Coche, Moto, Furgoneta, Camion)");
+            // System.out.println(" (2)  - Tipo de Vehiculo (N/A, Carretera, Campo, Servicios)");
+            // System.out.println(" (3)  - Matricula");
+            // System.out.println(" (4)  - Fecha de Matriculacion");
+            // System.out.println(" (5)  - Fecha de ultima ITV");
+            // System.out.println(" (6)  - Marca");
+            // System.out.println(" (7)  - Modelo");
+            // System.out.println(" (8)  - Tipo de combustible");
+            // System.out.println(" (9)  - Color");
+            // System.out.println("(10)  - Tipo de cambio");
+            // System.out.println("(11)  - ID del cliente al que pertenece");
+            // System.out.println("(12)  - Numero de ruedas");
+            // System.out.println("(13)  - Numero de Puertas");
+            // System.out.println("(14)  - ABS (true, false)");
+            // System.out.println("(15)  - GPS (true, false)");
+            // System.out.println("(16)  - Aire acondicionado (true, false)");
+            // System.out.println(" (s)  - Salir");
+            // System.out.println("");
+            // String opcion = input.invocar();
+            
+            // if(opcion.toLowerCase().equals("s")){
+                // salir = true;
+                // System.out.println("");
+            // }
+            // else if(Integer.parseInt(opcion) < 17){
+                // System.out.println("Por favor introduzca el nuevo dato:");
+                // String nuevo_dato = input.invocar();
+                // System.out.println("");
+                
+                // if(opcion.equals("1")){
+                    // lista_vehiculos.get(ID).modificar_vehiculo(nuevo_dato);
+                    // System.out.println("Vehiculo modificado con exito");
+                // }
+                // else if(opcion.equals("2")){
+                    // lista_vehiculos.get(ID).modificar_tipo_vehiculo(nuevo_dato);
+                    // System.out.println("Tipo vehiculo modificado con exito");
+                // }
+                // else if(opcion.equals("3")){
+                    // lista_vehiculos.get(ID).modificar_matricula(nuevo_dato);
+                    // System.out.println("Matricula modificada con exito");
+                // }
+                // else if(opcion.equals("4")){
+                    // lista_vehiculos.get(ID).modificar_fecha_matriculacion(nuevo_dato);
+                    // System.out.println("Fecha de matriculacion modificada con exito");
+                // }
+                // else if(opcion.equals("5")){
+                    // lista_vehiculos.get(ID).modificar_fecha_ITV_ultima(nuevo_dato);
+                    // System.out.println("Fecha de ultima ITV modificada con exito");
+                // }
+                // else if(opcion.equals("6")){
+                    // lista_vehiculos.get(ID).modificar_marca(nuevo_dato);
+                    // System.out.println("Marca modificada con exito");
+                // }
+                // else if(opcion.equals("7")){
+                    // lista_vehiculos.get(ID).modificar_modelo(nuevo_dato);
+                    // System.out.println("Modelo modificado con exito");
+                // }
+                // else if(opcion.equals("8")){
+                    // lista_vehiculos.get(ID).modificar_combustible(nuevo_dato);
+                    // System.out.println("Tipo de combustible modificado con exito");
+                // }
+                // else if(opcion.equals("9")){
+                    // lista_vehiculos.get(ID).modificar_color(nuevo_dato);
+                    // System.out.println("Color modificado con exito");
+                // }
+                // else if(opcion.equals("10")){
+                    // lista_vehiculos.get(ID).modificar_tipo_cambio(nuevo_dato);
+                    // System.out.println("Tipo de cambio modificado con exito");
+                // }
+                // else if(opcion.equals("11")){
+                    // lista_vehiculos.get(ID).modificar_ID_cliente_pertenece(Integer.parseInt(nuevo_dato));
+                    // System.out.println("Cliente(ID) al que el vehiculo pertenece modificado con exito");
+                // }
+                // else if(opcion.equals("12")){
+                    // lista_vehiculos.get(ID).modificar_num_ruedas(Integer.parseInt(nuevo_dato));
+                    // System.out.println("Numero de ruedas modificado con exito");
+                // }
+                // else if(opcion.equals("13")){
+                    // lista_vehiculos.get(ID).modificar_num_puertas(Integer.parseInt(nuevo_dato));
+                    // System.out.println("Numero de puertas modificado con exito");
+                // }
+                // else if(opcion.equals("14")){
+                    // lista_vehiculos.get(ID).modificar_ABS(Boolean.parseBoolean(nuevo_dato));
+                    // System.out.println("Existencia de ABS modificada con exito");
+                // }
+                // else if(opcion.equals("15")){
+                    // lista_vehiculos.get(ID).modificar_GPS(Boolean.parseBoolean(nuevo_dato));
+                    // System.out.println("Existencia de GPS modificada con exito");
+                // }
+                // else if(opcion.equals("16")){
+                    // lista_vehiculos.get(ID).modificar_aire_acondicionado(Boolean.parseBoolean(nuevo_dato));
+                    // System.out.println("Existencia de aire acondicioanda modificada con exito");
+                // }
+            // }
+            // else{
+                // System.out.println("Esa no es una opcion valida");
+            // }
+            // System.out.println("");
+        // }
+    // }
+    
+    // // VERICACION SI UN VEHICULO EXISTE EN LA BASE DE DATOS
+    
+    // /**
+    // * ACCESOR_VL_1a: Metodo para verificar si existe un vehiculo especifico en la BD por matricula y devolverlo
+    // */
+    // public Vehiculo comprobar_vehiculo(String matricula)
+    // {
+        // Vehiculo vehiculo = new Vehiculo();
+        
+        // for(Vehiculo vehiculo_loop : lista_vehiculos){
+           // if (vehiculo_loop.matricula().toLowerCase().equals(matricula.toLowerCase())){
+               // vehiculo = vehiculo_loop;
+               // break;
+           // }
+        // }
+        // return vehiculo;
+    // }
+            
+    // /**
+    // * ACCESOR_VL_1b: Metodo para verificar si existe un vehiculo especifico en la BD por matricula y devolverlo
+    // */
+    // public Vehiculo comprobar_vehiculo_prompt()
+    // {
+        // System.out.println("Introduzca la Matricula del vehiculo:");
+        // System.out.println("");
+        // String matricula_accesor_1b = input.invocar();
+        // System.out.println("");
+        
+        // Vehiculo vehiculo_acc_1b = new Vehiculo();
+        // vehiculo_acc_1b = comprobar_vehiculo(matricula_accesor_1b);
+        
+        // if(vehiculo_acc_1b.matricula().equals("N/A")){
+            // System.out.println("No se encuentra un vehiculo con esa matricula en la base de datos");
+            // System.out.println("");
+        // }
+
+        // return vehiculo_acc_1b;
+    // }
+    
+    // // RESUMENES
+    
+    // /**
+     // * RESUMEN_VL_1.1: Metodo para sacar un resumen de un Vehiculo particular
+     // */
+    // public void resumen_vehiculo_especifico(int ID_veh)
+    // {
+        // lista_vehiculos.get(ID_veh).resumen_vehiculo();
+    // }
+
+    // /**
+     // * RESUMEN_VL_1.2: Metodo para sacar un resumen de todos los Vehiculos
+     // */
+    // public void resumen_todos_vehiculos()
+    // {
+        // if(lista_vehiculos.isEmpty()){
+            // System.out.println("No hay vehiculos en la Base de Datos");
+            // System.out.println("");
+        // }
+        // else{
+            // for(Vehiculo vehiculo : lista_vehiculos){
+                // vehiculo.resumen_vehiculo();
+            // }
+        // }
+    // }
+    
+    // /**
+     // * RESUMEN_VL_1.3: Metodo para sacar un resumen de todos los Vehiculos de un cliente especifico
+     // */
+    // public void resumen_todos_vehiculos_por_cliente()
+    // {
+        // Cliente cliente = comprobar_cliente_prompt();
+        // int ID_client = cliente.ID_cliente();
+        // boolean lista_vacia = true;
+        
+        // for(Vehiculo vehiculo_loop : lista_vehiculos){
+            // if(vehiculo_loop.ID_cliente_pertenece() == (ID_client)){
+                // vehiculo_loop.resumen_vehiculo();
+                // lista_vacia = false;
+            // }
+        // }
+        // if(lista_vacia == true){
+            // System.out.println("No hay Vehiculos asociados a este cliente");
+            // System.out.println("");
+        // }
+    // }
+    
+    // // INICIALIZADOR
+    
+    // /**
+    // * AYUDANTE_VL_1: Metodo para crear los vehiculos iniciales de la base de datos
+    // */       
+    // private void rellena_vehiculos_iniciales()
+    // {      
+        // nuevo_vehiculo("Coche", "Monovolumen", "8473HRX", "01/07/2013", "15/07/2017",
+                        // "Toyota", "Auris", "Gasolina", "Azul Abisal", "Manual", 1, 4,
+                        // 5, true, false, true);
+        
+        // nuevo_vehiculo("Moto", "Carretera", "4521FTN", "01/03/2012", "15/07/2017",
+                        // "Toyota", "Auris", "Gasolina", "Azul Abisal", "Manual", 2, 4,
+                        // 5, true, false, true);
+                        
+        // nuevo_vehiculo("Camion", "Servicios", "4871GPO", "01/07/2013", "15/07/2017",
+                        // "Mercedes", "Vito", "Diesel", "Blanco", "Automatico", 2, 4,
+                        // 5, true, false, true);
+    // }
 }
