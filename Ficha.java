@@ -10,6 +10,7 @@ public class Ficha
     private Vehiculo vehiculo_ficha;
     private Trabajador trabajador_ficha;
     private ArrayList<Tarea> Lista_tareas;
+    private boolean ficha_cerrada;
     
     /**
      * Constructor for objects of class Ficha
@@ -19,6 +20,7 @@ public class Ficha
         vehiculo_ficha = vehiculo;
         trabajador_ficha = trabajador;
         Lista_tareas = new ArrayList<Tarea>();
+        ficha_cerrada = false;
         
         if(trabajador_ficha.tipo_trabajador().toLowerCase().equals("comercial")){
             if(vehiculo_ficha.GPS() == false){
@@ -62,16 +64,73 @@ public class Ficha
         Lista_tareas.add(tarea);
     }
     
+    public void cerrar_tarea(int ID_tarea)
+    {
+        Lista_tareas.get(ID_tarea).validar_tarea();
+    }
+    
     /**
      * An example of a method - replace this comment with your own
-     *
+     */
+    public String trabajador_nombre()
+    {
+        String texto = trabajador_ficha.nombre() + " " + trabajador_ficha.primer_apellido() +
+                        " " + trabajador_ficha.segundo_apellido();
+        return texto;
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     */
+    public String trabajador_tipo()
+    {
+        String texto = trabajador_ficha.tipo_trabajador().toLowerCase();
+        return texto;
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     */
+    public String trabajador_DNI()
+    {
+        String texto = trabajador_ficha.DNI().toLowerCase();
+        return texto;
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     */
+    public String vehiculo_matricula()
+    {
+        String texto = vehiculo_ficha.matricula().toLowerCase();
+        return texto;
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
      */
     public void resumen_tareas()
     {
         for(Tarea tarea_loop : Lista_tareas){
-            System.out.print("  ");
+            int ID = Lista_tareas.indexOf(tarea_loop);
+            System.out.print(" " + ID + " -");
             tarea_loop.resumen_tarea();
         }
         System.out.println("");
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     */
+    public boolean comprobar_estado_ficha()
+    {
+        ficha_cerrada = true;
+        for(Tarea tarea_loop : Lista_tareas){
+            if(tarea_loop.estado_tarea() == false){
+                ficha_cerrada = false;
+                break;
+            }
+        }
+        return ficha_cerrada;
     }
 }

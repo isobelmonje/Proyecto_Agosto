@@ -19,11 +19,8 @@ public class Menu
             if(tipo_trabajador.toLowerCase().equals("encargado")){
                 Menu_enc_0();
             }
-            else if (tipo_trabajador.toLowerCase().equals("comercial")){
-                Menu_com_0();
-            }
             else{
-                Menu_mec_0();
+                Menu_com_mec_0();
             }
         }
         
@@ -31,44 +28,20 @@ public class Menu
             if(tipo_trabajador.toLowerCase().equals("encargado")){
                 Menu_enc_0_1();
             }
-            else if (tipo_trabajador.toLowerCase().equals("comercial")){
-                //Menu_com_1();
-            }
-            else{
-                //Menu_mec_1();
-            }
         }
         else if(tipo_menu.equals("0.2")){
             if(tipo_trabajador.toLowerCase().equals("encargado")){
                 Menu_enc_0_2();
-            }
-            else if (tipo_trabajador.toLowerCase().equals("comercial")){
-                //Menu_com_1();
-            }
-            else{
-                //Menu_mec_1();
             }
         }
         else if(tipo_menu.equals("0.3")){
             if(tipo_trabajador.toLowerCase().equals("encargado")){
                 Menu_enc_0_3();
             }
-            else if (tipo_trabajador.toLowerCase().equals("comercial")){
-                //Menu_com_1();
-            }
-            else{
-                //Menu_mec_1();
-            }
         }
         else if(tipo_menu.equals("0.4")){
             if(tipo_trabajador.toLowerCase().equals("encargado")){
                 Menu_enc_0_4();
-            }
-            else if (tipo_trabajador.toLowerCase().equals("comercial")){
-                //Menu_com_1();
-            }
-            else{
-                //Menu_mec_1();
             }
         }
     }
@@ -84,8 +57,6 @@ public class Menu
         opciones_menu.add("Operaciones con Clientes dentro de la Base de Datos"); //0.2
         opciones_menu.add("Operaciones con Vehiculos dentro de la Base de Datos"); //0.3
         opciones_menu.add("Operaciones con tareas de Comerciales o Mecanicos"); //0.4
-        // opciones_menu.add("Comprobar estado de Revisiones"); //0.5
-        opciones_menu.add("Operaciones con Promociones Comerciales"); //0.5
     }
     
     public void Menu_enc_0_1()
@@ -122,45 +93,18 @@ public class Menu
         opciones_menu.add("Ver Resumen de Fichas");
     }
     
-    // public void Menu_enc_0_5()
-    // {
-        // opciones_menu.add("Ver Promociones Comerciales");
-        // opciones_menu.add("Crear Nueva Promocion Comercial");
-        // opciones_menu.add("Cerrar Promocion Comercial");
-    // }
+    // COMERCIALES Y MECANICOS
     
-    // COMERCIALES
-    
-    public void Menu_com_0()
+    public void Menu_com_mec_0()
     {
-        opciones_menu.add("Ver Promociones Actuales");//end
-        opciones_menu.add("Operaciones con Clientes dentro de la Base de Datos");//0.2
+        opciones_menu.add("Ver Tareas Pendientes");//0.1
+        opciones_menu.add("Añadir Tareas por ID de Ficha");//0.2
+        opciones_menu.add("Cerrar Tareas por ID de Ficha");//0.3
+        opciones_menu.add("Ver Resumen de Todos los Clientes");//0.4
+        opciones_menu.add("Ver Resumen de Cliente por DNI");//0.5
     }
     
-    public void Menu_com_0_2()
-    {
-        opciones_menu.add("Ver Resumen de Todos los Clientes");
-        opciones_menu.add("Ver Resumen de Cliente por DNI");
-        opciones_menu.add("Añadir Cliente");
-        opciones_menu.add("Eliminar Cliente existente");
-        opciones_menu.add("Modificar datos de Cliente");
-        opciones_menu.add("Gestionar Vehiculos de Cliente por DNI");
-        opciones_menu.add("Ir al menu anterior");
-    }
-    
-    // MECANICOS
-    
-    public void Menu_mec_0()
-    {
-        opciones_menu.add("Operaciones con Tareas Asignadas");
-        opciones_menu.add("Modificar 'password' personal");
-    }
-       
-    public void Menu_mec_1()
-    {
-        opciones_menu.add("Ver mis Tareas");
-        opciones_menu.add("Ir al menu anterior");
-    }
+    // RESUMENES
       
     /**
      * RESUMEN_1: Metodo para sacar en pantalla las opciones de un Menu
